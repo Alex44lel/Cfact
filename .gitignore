@@ -1,2 +1,4 @@
 ./env
 env
+.env
+fron/my_app/node_modules

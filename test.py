@@ -5,10 +5,10 @@ client = MultiOn(
 )
 
 retrieve_response = client.retrieve(
-    cmd="Get all posts on Hackernews with title, creator, time created, points as a number, number of comments as a number, and the post URL.",
-    url="https://news.ycombinator.com/",
-    fields=["title", "creator", "time", "points", "comments", "url"]
+    cmd="Using wikipidia, tell me if a lion is a reptile",
+    url="https://www.wikipedia.org/",
+    fields=["objective", "explanation"]
 )
 
-data = retrieve_response.data
+data = retrieve_response.data[0]["explanation"]
 print(data)

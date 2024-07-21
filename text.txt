@@ -1,0 +1,22 @@
+    content = f"""You are a fact checker. A conversation will be pass to you with the following format:
+                     start:(seconds) end:(seconds)  speaker:(speaker_name)  speaker_voice: (speaker_voice)
+
+                     Here is an example:
+                        start: 0.00 end:3.00 speaker:Speaker1 speaker_voice:Hello, how are you?
+                        start: 3.00 end:6.00 speaker:Speaker2 speaker_voice:I am fine, thank you.
+                        start: 6.00 end:9.00 speaker:Speaker1 speaker_voice:What are you doing?
+
+                    Your task is to fact check everything the each speaker has said during the conversation. You will output a json
+                    with the following right json format including everyting the speaker has said wrong.
+
+                    Please be concise, for example if speaker1 said : "spain is in asia" you should said something like:
+                    -spain is not in asia, it is in europe.
+
+                    The JSON object must use the schema: {json.dumps(Fact_check_results.model_json_schema(), indent=2)}
+
+                    """
+        
+
+# claim is true 2
+# this claim lacks justification os not totally true 0
+# this clame is false 1
