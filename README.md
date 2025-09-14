@@ -6,6 +6,8 @@ Cfact is an AI-powered tool designed to supervise and fact-check statements made
 
 Have you ever watched a political debate and wondered "Is that actually true?" Cfact listens to live debates, identifies who's speaking, transcribes their statements, and instantly fact-checks them using advanced AI models. The results are displayed in a clean, color-coded interface so you can see which claims are accurate, which are false, and which need more investigation.
 
+Think of it as having a dedicated fact-checker sitting next to you during any political discussion, giving you real-time insights into the accuracy of statements being made.
+
 ## Features
 
 - **Real-time audio recording** and processing
@@ -19,13 +21,32 @@ Have you ever watched a political debate and wondered "Is that actually true?" C
 - **Double-check feature** - click any fact to verify it against Wikipedia using MultiOn
 - **Reset functionality** to clear results between debates
 
+## System Requirements
+
+**Minimum:**
+- Python 3.8+
+- Node.js 14+
+- 4GB RAM
+- Microphone input
+- Internet connection
+
+**Recommended:**
+- Python 3.10+
+- Node.js 18+
+- 8GB+ RAM
+- NVIDIA GPU with CUDA support (significantly faster processing)
+- High-quality USB microphone
+- Stable broadband internet
+
 ## Prerequisites
 
 Before you get started, you'll need API keys for:
 
-- **Groq API** (for speech transcription)
-- **Hugging Face** (for speaker diarization models)  
-- **MultiOn API** (for Wikipedia fact verification)
+- **Groq API** (for speech transcription) - [Get it here](https://console.groq.com/)
+- **Hugging Face** (for speaker diarization models) - [Get it here](https://huggingface.co/settings/tokens)
+- **MultiOn API** (for Wikipedia fact verification) - [Get it here](https://www.multion.ai/)
+
+> **Note**: This tool requires a microphone and works best with clear audio input from both speakers.
 
 ## Installation
 
@@ -121,16 +142,35 @@ Cfact/
 └── README.md            # This file
 ```
 
-## Limitations
+## Limitations & Known Issues
 
 - Currently supports only 2 speakers maximum
-- Requires good audio quality for accurate transcription
-- Fact-checking accuracy depends on AI model capabilities
-- Real-time processing requires decent computing resources (GPU recommended)
+- Requires good audio quality for accurate transcription  
+- Fact-checking accuracy depends on AI model capabilities and training data
+- Real-time processing requires decent computing resources (GPU recommended for best performance)
+- May struggle with heavily accented speech or overlapping conversations
+- Internet connection required for all AI API calls
+
+## Future Improvements
+
+We're actively working on:
+- Support for more than 2 speakers
+- Offline mode for basic transcription
+- Better accuracy with noisy audio environments
+- Integration with additional fact-checking sources
+- Mobile app version
 
 ## Contributing
 
-Feel free to submit issues, fork the repository, and create pull requests for any improvements. This project is still in development and welcomes contributions!
+We welcome contributions! Here's how you can help:
+
+- **Report bugs** - Found an issue? Please create a GitHub issue
+- **Suggest features** - Have ideas for improvements? We'd love to hear them
+- **Submit pull requests** - Fixed something or added a feature? Send us a PR
+- **Improve documentation** - Help make the docs clearer for everyone
+- **Test with different audio setups** - Help us improve compatibility
+
+Feel free to fork the repository and experiment. This project is still evolving and every contribution helps make it better!
 
 ## Troubleshooting
 
@@ -149,6 +189,23 @@ Feel free to submit issues, fork the repository, and create pull requests for an
 **Frontend not connecting?**
 - Ensure the backend is running on port 5000
 - Check that CORS is properly configured
+
+## FAQ
+
+**Q: How accurate is the fact-checking?**
+A: Accuracy depends on the AI models used and the availability of information. The tool provides a good starting point, but always verify important claims from multiple sources.
+
+**Q: Can I use this for languages other than English?**
+A: Currently optimized for English only. The transcription model supports other languages, but fact-checking may be less accurate.
+
+**Q: Is my audio data stored anywhere?**
+A: Audio is processed in real-time and not permanently stored. Only temporary processing files are created locally.
+
+**Q: Why does it only support 2 speakers?**
+A: This limitation comes from the speaker diarization implementation. We're working on supporting more speakers in future versions.
+
+**Q: Can I run this without internet?**
+A: No, all AI processing requires API calls to external services (Groq, Hugging Face, MultiOn).
 
 ## License
 
